@@ -25,7 +25,7 @@ return (
   );
 
   function handleChangeStars(rating){
-    axios.post('http://localhost:3002/java/sugestP',{_id:props.id, rating:rating}).then(x=>console.log(x)).catch(x=>console.log(x))
+    axios.post('https://mapautf-suggestionapi.herokuapp.com/java/sugestP',{_id:props.id, rating:rating}).then(x=>console.log(x)).catch(x=>console.log(x))
   }
 }
 
