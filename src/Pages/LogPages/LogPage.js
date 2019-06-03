@@ -13,7 +13,7 @@ function LogPage() {
     
   useEffect(()=>{
     axios
-      .get('http://localhost:3001/java/logger')
+      .get('https://mapautf-loggerapi.herokuapp.com/java/logger')
       .then(  x => {
           setLogs(x.data);
           console.log(x.data)

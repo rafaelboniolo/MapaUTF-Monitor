@@ -13,7 +13,7 @@ function SuggestionPage() {
     
   useEffect(()=>{
     axios
-      .get('http://localhost:3002/java/sugests')
+      .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests')
       .then(  x => {
           setSuggestions(x.data);
           })
