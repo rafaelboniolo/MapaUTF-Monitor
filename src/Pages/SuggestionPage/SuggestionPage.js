@@ -37,9 +37,6 @@ function SuggestionPage() {
 
   function clickSearch() {
 
-    console.log('https://mapautf-suggestionapi.herokuapp.com/java/sugests/'+DateUtil.format(startDate)+'/'+DateUtil.format(endDate));
-    
-
     axios
       .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/'+DateUtil.format(startDate)+'/'+DateUtil.format(endDate))
       .then(  x => {
