@@ -5,12 +5,11 @@ import imageCoruja from '../../assets/coruja.png'
 import imageAriba from '../../assets/ariba.jpg'
 import {TabMenu} from 'primereact/tabmenu';
 
-
 export default function Header(props){
 
     const [images] = useState([imageCoruja, imageAriba])
     const [indice, setIndice] = useState(0)
-    const [itemsMenu] = useState([{label:'Sugestões',icon:'pi pi-fw pi-home'},{label:'Logs',icon:'pi pi-fw pi-home'}])
+    const [itemsMenu] = useState([{label:'Sugestões',icon:"pi pi-star"},{label:'Logs',icon:"pi pi-exclamation-triangle"}])
     const [selectItem, setSelectItem] = useState(null)
 
     return(
