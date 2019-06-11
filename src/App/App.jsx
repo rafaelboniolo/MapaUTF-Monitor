@@ -21,7 +21,7 @@ function App() {
   return (
     < div >
       <Header changePage={changePage} />
-      <div className="divPrincipal"> 
+      <div className="divPrincipal">
         
         {
           statePage === 'Logs' ?(<LogPage/>):(<SuggestionPage/>)

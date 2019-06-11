@@ -3,9 +3,9 @@
 }
 
 .coruja:hover{
-    -webkit-transform: rotateZ(+180deg);
-    -ms-transform: rotateZ(+180deg);
-    transform: rotateZ(+180deg);
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);
 }
 
 .p-menuitem-link{

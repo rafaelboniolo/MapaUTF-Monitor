@@ -15,7 +15,7 @@ return (
         <Panel header={props.date} style={{marginTop:'2em'}} toggleable={true}  >
             
             <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
-              <span >{props.sugestao}</span>
+              <span><p style={{fontStyle:'italic'}}>{props.sugestao}</p></span>
               <Rating value={rating||props.rating} onChange={(e) => {
                   setRating(e.value);
                   handleChangeStars(e.value)

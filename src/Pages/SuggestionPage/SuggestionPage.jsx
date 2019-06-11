@@ -9,25 +9,26 @@ import '../../resource/global.css'
 
 function SuggestionPage() {
   const [suggestions, setSuggestions] = useState([]);
-  const [startDate, setStartDate] = useState(Date.now()-9999999999)
-  const [endDate, setEndDate] = useState(Date.now())
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
   const [loading, setLoading] = useState(false)
 
 
-  useEffect(()=>{clickSearch()},[])
+  useEffect(()=>{
+    setLoading(true)
+    axios
+      .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/'+(Date.now()-999999999999)+'/'+Date.now())
+      .then(x =>setSuggestions(x.data))
+      .catch( x => console.log(x))
+      .finally(_=>setLoading(false))
+  },[])
 
   return (
       <div style={{flexDirection:'column', flex:1, marginLeft:'5%',marginRight:'5%'}}>
         <h1 style={{justifyContent:'center'}}> Sugestões </h1>
         
-        {
-          loading? 
-          (
-            <div style={{display:'flex', flex:1, justifyContent:'center'}}>
-              <img src={image}/>
-            </div>
-          ):
-          (
+        
+          
             <div style={{display:'flex', flex:1, justifyContent:'space-around'}}>
              <div style={{display:'flex', flex:4}}></div>
 
@@ -36,7 +37,7 @@ function SuggestionPage() {
                   <span style={{marginRight:5}}>
                     Inicial:
                   </span>  
-                  <DatePicker  onChange={(e)=>{setStartDate(e)}} value={startDate} />
+                  <DatePicker  onChange={(e)=>{setStartDate(e)}} value={startDate}/>
                 </div>
                 
                 <div>
@@ -52,13 +53,18 @@ function SuggestionPage() {
              </div>
              
             </div>
-          )
-          }
-        
           
         {
-          suggestions.filter(x=>x.sugestao).map(x=>{
-          return (<Suggestion rating={x.rating} id={x._id} key={x._id} date={"Data: ".concat(x.date.replace("T"," Hora: ").split(".")[0])} sugestao={x.sugestao}  style={{backgroundColor:"red"}}></Suggestion>)})
+          loading? 
+          (
+            <div style={{display:'flex', flex:1, justifyContent:'center'}}>
+              <img src={image}/>
+            </div>
+          ):
+          (
+            suggestions.filter(x=>x.sugestao).map(x=>{
+            return (<Suggestion rating={x.rating} id={x._id} key={x._id} date={"Data: ".concat(x.date.replace("T"," Hora: ").split(".")[0])} sugestao={x.sugestao}  style={{backgroundColor:"red"}}></Suggestion>)})
+          )
         }
 
       </div>
@@ -82,8 +88,6 @@ function SuggestionPage() {
       alert('Selecione a data Final')
       return;
     }
-
-    console.log(DateUtil.format(startDate));
 
     setLoading(true)
     axios

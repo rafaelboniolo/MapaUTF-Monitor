@@ -1,6 +1,6 @@
 .p-panel-titlebar{
     border-top-left-radius: 12px !important;
-    border-top-right-radius: 12px !important;
+    border-top-right-radius: 1px !important;
     background-color: aqua !important;
 
  
@@ -13,7 +13,7 @@
 
 
 .p-rating-icon{
-    color: #e7ef4c !important;
+    color: #f8e808 !important;
     
 }
 
