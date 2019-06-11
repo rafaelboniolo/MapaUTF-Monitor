@@ -1,0 +1,27 @@
+.p-panel-titlebar{
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    background-color: aqua !important;
+
+ 
+}
+.p-panel-content{
+    background-color: aliceblue !important;
+    border-bottom-left-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+}
+
+
+.p-rating-icon{
+    color: #e7ef4c !important;
+    
+}
+
+.p-rating-icon:hover{
+    -webkit-transform: rotateZ(-30deg);
+    -ms-transform: rotateZ(-30deg);
+    transform: rotateZ(-30deg);  
+    color: red !important;
+
+}
+

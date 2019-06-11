@@ -3,13 +3,6 @@ import axios from 'axios'
 import Log from '../../Component/Log/Log'
 import DatePicker from 'react-date-picker';
 
-import DateUtil from '../../util/DateUtil';
-
-
-import 'primereact/resources/themes/nova-light/theme.css';
-import 'primereact/resources/primereact.min.css';
-import 'primeicons/primeicons.css';
-
 
 function LogPage() {
   const [logs, setLogs] = useState([]);
@@ -26,8 +19,8 @@ function LogPage() {
   },[]);
 
   return (
-      <div style={{display:'flex', flexDirection:'column', flex:1, marginLeft:'5%',marginRight:'5%'}}>
-        <h1 style={{display:'flex', justifyContent:'center'}}> Logs da aplicação </h1>
+      <div style={{flexDirection:'column', flex:1, marginLeft:'5%',marginRight:'5%'}}>
+        <h1 style={{justifyContent:'center'}}> Logs da aplicação </h1>
         <div>
         <div>
           StartDate:  

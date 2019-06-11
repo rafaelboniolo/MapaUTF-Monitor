@@ -1,0 +1,9 @@
+.react-date-picker *{
+    border-radius: 10px !important;
+    border-color:darkgray
+}
+
+.react-date-picker *:hover{
+    border-radius: 10px !important;
+    border-color:blue
+}

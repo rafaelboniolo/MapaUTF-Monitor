@@ -1,3 +1,17 @@
 .div{
-    display: flexbox;
+    display: flex;
+}
+
+.coruja:hover{
+    -webkit-transform: rotateZ(+180deg);
+    -ms-transform: rotateZ(+180deg);
+    transform: rotateZ(+180deg);
+}
+
+.p-menuitem-link{
+    border-radius: 10px !important;
+}
+
+.p-tabmenu-nav{
+    border-bottom: 0 !important
 }

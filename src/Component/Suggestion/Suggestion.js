@@ -3,7 +3,7 @@ import {Panel} from 'primereact/panel';
 import axios from 'axios'
 import {Rating} from 'primereact/rating';
 
-
+import './Suggestion.css'
 
 function Suggestion(props) {
 
@@ -11,13 +11,17 @@ function Suggestion(props) {
 
     
 return (
-    <div>
+    <div style={{display:'flex', flex:1, flexDirection:'column',}}>
         <Panel header={props.date} style={{marginTop:'2em'}} toggleable={true}  >
-            {props.sugestao}
-            <Rating value={rating||props.rating} onChange={(e) => {
-                setRating(e.value);
-                handleChangeStars(e.value)
-                }} stars={10} cancel={false} />
+            
+            <div style={{display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+              <span >{props.sugestao}</span>
+              <Rating value={rating||props.rating} onChange={(e) => {
+                  setRating(e.value);
+                  handleChangeStars(e.value)
+                  }} stars={10} cancel={false} />
+            </div>
+
         </Panel>
 
     </div>
