@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import axios from 'axios'
 import Suggestion from '../../Component/Suggestion/Suggestion'
 import DatePicker from 'react-date-picker';
@@ -9,9 +9,12 @@ import '../../resource/global.css'
 
 function SuggestionPage() {
   const [suggestions, setSuggestions] = useState([]);
-  const [startDate, setStartDate] = useState(null)
-  const [endDate, setEndDate] = useState(null)
+  const [startDate, setStartDate] = useState(Date.now()-9999999999)
+  const [endDate, setEndDate] = useState(Date.now())
   const [loading, setLoading] = useState(false)
+
+
+  useEffect(()=>{clickSearch()},[])
 
   return (
       <div style={{flexDirection:'column', flex:1, marginLeft:'5%',marginRight:'5%'}}>
@@ -63,29 +66,29 @@ function SuggestionPage() {
 
   function clickSearch() {
 
-    // if(!startDate && !endDate){
-    //   alert('Selecione as datas')
-    //   return;
-    // }
+    if(!startDate && !endDate){
+      alert('Selecione as datas')
+      return;
+    }
       
 
 
-    // if(!startDate){
-    //   alert('Selecione a data Inicial')
-    //   return;
-    // }
+    if(!startDate){
+      alert('Selecione a data Inicial')
+      return;
+    }
       
-    // if(!endDate){
-    //   alert('Selecione a data Final')
-    //   return;
-    // }
+    if(!endDate){
+      alert('Selecione a data Final')
+      return;
+    }
 
     console.log(DateUtil.format(startDate));
 
     setLoading(true)
     axios
-      // .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/'+DateUtil.format(startDate)+'/'+DateUtil.format(endDate))
-      .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/2019-05-03T00:00:00.000Z/2019-06-13T00:00:00.000Z')
+      .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/'+DateUtil.format(startDate)+'/'+DateUtil.format(endDate))
+      // .get('https://mapautf-suggestionapi.herokuapp.com/java/sugests/2019-05-03T00:00:00.000Z/2019-06-13T00:00:00.000Z')
       .then(x =>setSuggestions(x.data))
       .catch( x => console.log(x))
       .finally(_=>setLoading(false))
