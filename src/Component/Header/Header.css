@@ -15,3 +15,14 @@
 .p-tabmenu-nav{
     border-bottom: 0 !important
 }
+
+.fonte{
+    font-family: 'Russo One', sans-serif;
+}
+
+.utfprName{
+    color: #f6c500;
+    display: inline;
+    text-shadow: 4px 4px 4px #aaa;
+    font-family: 'Acme', sans-serif;
+}

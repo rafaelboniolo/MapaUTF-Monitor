@@ -1,20 +1,16 @@
 import React from 'react';
 import {Panel} from 'primereact/panel';
 
-
-
-
 function Log(props) {
 
+    return (
+        <div>
+            <Panel header={props.clazz+' '+props.date} style={{marginTop:'2em'}} toggleable={true}  >
+                {props.err}
+            </Panel>
 
-return (
-    <div>
-        <Panel header={props.clazz+''+props.date} style={{marginTop:'2em'}} toggleable={true}  >
-            {props.err}
-        </Panel>
-
-    </div>
-  );
+        </div>
+      );
 }
 
 export default Log;

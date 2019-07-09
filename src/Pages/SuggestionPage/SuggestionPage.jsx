@@ -25,35 +25,31 @@ function SuggestionPage() {
 
   return (
       <div style={{flexDirection:'column', flex:1, marginLeft:'5%',marginRight:'5%'}}>
-        <h1 style={{justifyContent:'center'}}> Sugestões </h1>
-        
-        
-          
-            <div style={{display:'flex', flex:1, justifyContent:'space-around'}}>
-             <div style={{display:'flex', flex:4}}></div>
+          <div style={{display:'flex', flex:1, justifyContent:'space-around', marginTop:20}}>
+            <div style={{display:'flex', flex:4}}></div>
 
-            <div style={{display:'flex', flex:1.7, justifyContent:'space-around'}}>
-              <div>
-                  <span style={{marginRight:5}}>
-                    Inicial:
-                  </span>  
-                  <DatePicker  onChange={(e)=>{setStartDate(e)}} value={startDate}/>
-                </div>
-                
-                <div>
-                  <span style={{marginRight:5}}>
-                    Final:
-                  </span>
-                    <DatePicker onChange={(e)=>{setEndDate(e)}} value={endDate} />
-                </div>
-                
-                <button onClick={clickSearch} style={{backgroundColor:'#2674f2', borderRadius:10, border:0}}>
-                  <span style={{color:'white'}}>Buscar</span>
-                </button>
-             </div>
-             
+          <div style={{display:'flex', flex:1.7, justifyContent:'space-around'}}>
+            <div style={{marginRight:5}}>
+                <span style={{marginRight:5}}>
+                  Inicial:
+                </span>  
+                <DatePicker  onChange={(e)=>{setStartDate(e)}} value={startDate}/>
+              </div>
+              
+              <div style={{marginRight:5}}>
+                <span style={{marginRight:5}}>
+                  Final:
+                </span>
+                  <DatePicker onChange={(e)=>{setEndDate(e)}} value={endDate} />
+              </div>
+              
+              <button onClick={clickSearch} style={{backgroundColor:'#2674f2', borderRadius:10, border:0}}>
+                <span style={{color:'white'}}>Buscar</span>
+              </button>
             </div>
-          
+            
+          </div>
+        
         {
           loading? 
           (
@@ -63,7 +59,7 @@ function SuggestionPage() {
           ):
           (
             suggestions.filter(x=>x.sugestao).map(x=>{
-            return (<Suggestion rating={x.rating} id={x._id} key={x._id} date={"Data: ".concat(x.date.replace("T"," Hora: ").split(".")[0])} sugestao={x.sugestao}  style={{backgroundColor:"red"}}></Suggestion>)})
+             return (<Suggestion rating={x.rating} id={x._id} key={x._id} date={"Data: ".concat(x.date.replace("T"," Hora: ").split(".")[0])} sugestao={x.sugestao}  style={{backgroundColor:"red"}}></Suggestion>)})
           )
         }
 
@@ -76,8 +72,6 @@ function SuggestionPage() {
       alert('Selecione as datas')
       return;
     }
-      
-
 
     if(!startDate){
       alert('Selecione a data Inicial')

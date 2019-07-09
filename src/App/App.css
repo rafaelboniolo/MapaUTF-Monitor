@@ -1,3 +1,7 @@
-.divPrincipal{
-    display: flex;
+.divPrincipal {
+    height: 100%;
+}
+
+.divSecundaria {
+    height: 100%;
 }
